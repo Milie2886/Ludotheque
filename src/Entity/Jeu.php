@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Traits\Timestampable;
 use App\Repository\JeuRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: JeuRepository::class)]
 #[ORM\Table(name:"jeux")]
@@ -19,9 +20,13 @@ class Jeu
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message:'Le titre ne peut pas être vide')]
+    #[Assert\Length(min:3)]
     private $title;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(message:'Merci de mettre une description')]
+    #[Assert\Length(min:10)]
     private $description;
 
     public function getId(): ?int
