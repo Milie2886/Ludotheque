@@ -42,6 +42,8 @@ class JeuxController extends AbstractController
             $em->persist($jeu);
             $em->flush();
 
+            $this->addFlash('success', 'Jeu ajouté avec succès!');
+
             return $this->redirectToRoute('app_home');
         }
 
@@ -61,6 +63,8 @@ class JeuxController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()){
             $em->flush();
+
+            $this->addFlash('info', 'Jeu modifié avec succès!');
             
             return $this->redirectToRoute('app_home');
         }
@@ -79,6 +83,8 @@ class JeuxController extends AbstractController
         
         $em->remove($jeu);
         $em->flush();
+
+        $this->addFlash('error', 'Jeu supprimé avec succès!');
     }
 
     return $this->redirectToRoute('app_home');

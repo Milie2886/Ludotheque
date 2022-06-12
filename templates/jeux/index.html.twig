@@ -9,7 +9,8 @@
     {% for jeu in jeux %}
         <article>
             <h2><a href="{{ path('app_jeux_show', {id: jeu.id}) }}">{{ jeu.title }}</a></h2>
-            <p>{{ jeu.description }}</p>
+            <p>{{ jeu.description|u.truncate(10, '...', false)}}</p>
+            <p>Jeu ajouté {{ jeu.createdAt|date }}</p>
         </article>
     {% endfor %}
 {% endblock %}
