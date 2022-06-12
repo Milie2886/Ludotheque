@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Modifier un Jeu #' ~ jeu.id %}
+
+{% block body %}
+    <h1>Modifier un jeu # {{ jeu.id }}</h1>
+    {{ form_start(form)}}
+        {{form_widget(form)}}
+            <input type="submit" value="Modifier un jeu">
+    {{ form_end(form) }}
+{% endblock %}

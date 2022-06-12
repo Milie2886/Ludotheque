@@ -7,5 +7,6 @@
         <h1>{{ jeu.title }}</h1>
         <p>{{ jeu.description }}</p>
     </article>
-    <a href="{{ path('app_home') }}">Go back</a>
+    <a href="{{ path('app_home') }}">Go back</a> |
+    <a href="{{ path('app_jeux_edit', {id : jeu.id}) }}">Edit</a>
 {% endblock %}
