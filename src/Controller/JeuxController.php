@@ -14,7 +14,7 @@ class JeuxController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(JeuRepository $jeuRepository): Response
     {
-        $jeux = $jeuRepository->findAll();
+        $jeux = $jeuRepository->findBy([], ['createdAt' => 'DESC']);
         return $this->render('jeux/index.html.twig', compact('jeux'));
     }
 
