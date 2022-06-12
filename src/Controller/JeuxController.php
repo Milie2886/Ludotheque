@@ -85,7 +85,7 @@ class JeuxController extends AbstractController
         $em->remove($jeu);
         $em->flush();
 
-        $this->addFlash('error', 'Jeu supprimé avec succès!');
+        $this->addFlash('warning', 'Jeu supprimé avec succès!');
     }
 
     return $this->redirectToRoute('app_home');

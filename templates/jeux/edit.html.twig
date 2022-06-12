@@ -3,8 +3,12 @@
 {% block title 'Modifier un Jeu #' ~ jeu.id %}
 
 {% block body %}
-    <h1>Modifier un jeu # {{ jeu.id }}</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1>Modifier un jeu # {{ jeu.id }}</h1>
 
-    {{ include('jeux/_form.html.twig', {submitButtonText : 'Modifier'}) }}
+            {{ include('jeux/_form.html.twig', {submitButtonText : 'Modifier'}) }}
+        </div>
+    </div>
 
 {% endblock %}

@@ -3,8 +3,12 @@
 {% block title 'Nouveau Jeu' %}
 
 {% block body %}
-    <h1>Ajouter un jeu</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1>Ajouter un jeu</h1>
 
-    {{ include('jeux/_form.html.twig', {'submitButtonText' : 'Ajouter'}) }}
+            {{ include('jeux/_form.html.twig', {'submitButtonText' : 'Ajouter'}) }}
+        </div>
+    </div>
 
 {% endblock %}
