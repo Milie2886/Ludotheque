@@ -4,8 +4,7 @@
 
 {% block body %}
     <h1>Ajouter un jeu</h1>
-    {{ form_start(form)}}
-        {{form_widget(form)}}
-            <input type="submit" value="Ajouter un jeu">
-    {{ form_end(form) }}
+
+    {{ include('jeux/_form.html.twig', {'submitButtonText' : 'Ajouter'}) }}
+
 {% endblock %}

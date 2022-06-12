@@ -72,12 +72,15 @@ class JeuxController extends AbstractController
     }
 
      //Route pour supprimer un jeu
-     #[Route('/jeux/{id<[0-9]+>}/delete', name: 'app_jeux_delete')]
-     public function delete(Jeu $jeu, EntityManagerInterface $em): Response
-     {
+    #[Route('/jeux/{id<[0-9]+>}/delete', name: 'app_jeux_delete')]
+    public function delete(Request $request, Jeu $jeu, EntityManagerInterface $em): Response
+    {
+    if ($this->isCsrfTokenValid('jeu_deletion_' . $jeu->getId(), $request->request->get('csrf_token'))) {
+        
         $em->remove($jeu);
         $em->flush();
+    }
 
-        return $this->redirectToRoute('app_home');
-     }
+    return $this->redirectToRoute('app_home');
+    }
 }
