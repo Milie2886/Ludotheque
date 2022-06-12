@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Jeu;
+use App\Form\JeuType;
 use App\Repository\JeuRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,10 +34,7 @@ class JeuxController extends AbstractController
     public function create(Request $request , EntityManagerInterface $em): Response
     {
         $jeu = new Jeu;
-        $form = $this->createFormBuilder($jeu)
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->getForm();
+        $form = $this->createForm(JeuType::class, $jeu);
 
         $form->handleRequest($request);
 
@@ -59,16 +54,12 @@ class JeuxController extends AbstractController
     #[Route('/jeux/{id<[0-9]+>}/edit', name: 'app_jeux_edit', methods: ["GET", "POST"])]
     public function edit(Request $request , EntityManagerInterface $em, Jeu $jeu): Response
     {
-        $form = $this->createFormBuilder($jeu)
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->getForm();
+        $form = $this->createForm(JeuType::class, $jeu);
 
         $form->handleRequest($request);
 
         
         if ($form->isSubmitted() && $form->isValid()){
-            $em->persist($jeu);
             $em->flush();
             
             return $this->redirectToRoute('app_home');
@@ -79,4 +70,14 @@ class JeuxController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+     //Route pour supprimer un jeu
+     #[Route('/jeux/{id<[0-9]+>}/delete', name: 'app_jeux_delete')]
+     public function delete(Jeu $jeu, EntityManagerInterface $em): Response
+     {
+        $em->remove($jeu);
+        $em->flush();
+
+        return $this->redirectToRoute('app_home');
+     }
 }

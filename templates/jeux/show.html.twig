@@ -7,6 +7,12 @@
         <h1>{{ jeu.title }}</h1>
         <p>{{ jeu.description }}</p>
     </article>
-    <a href="{{ path('app_home') }}">Go back</a> |
-    <a href="{{ path('app_jeux_edit', {id : jeu.id}) }}">Edit</a>
+    <a href="{{ path('app_home') }}">Home</a> |
+    <a href="{{ path('app_jeux_edit', {id : jeu.id}) }}">Modifier</a>
+    <a href="#" onClick="event.preventDefault(); confirm('Etes-vous sûr(e)?') && document.getElementById('js-jeu-delete-form').submit();">Supprimer</a>
+
+
+    <form id="js-jeu-delete-form" action="{{ path('app_jeux_delete', {id : jeu.id}) }}" method="post" style="display: none;">
+        <input type="hidden" name="_method" value="DELETE"/>
+    </form>
 {% endblock %}
