@@ -8,3 +8,9 @@ html, body {
     text-align: center;
 
 }
+.jeu img:hover {
+    transform: scale(1.075);
+}
+.jeu img  {
+    transition: transform 0.3s ease-out;
+}

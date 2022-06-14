@@ -3,14 +3,33 @@
 {% block title 'Tous les jeux!' %}
 
 {% block body %}
-{# fonction pluralize créée pour mettre le mot jeu au pluriel selon le nombre d'entrées dans la base de données
-    Fonction décrite dans AppExtension.php#}
-<h1>{{ pluralize(jeux|length, 'jeu') }}</h1>
-    {% for jeu in jeux %}
-        <article>
-            <h2><a href="{{ path('app_jeux_show', {id: jeu.id}) }}">{{ jeu.title }}</a></h2>
-            <p>{{ jeu.description|u.truncate(10, '...', false)}}</p>
-            <p>Jeu ajouté {{ jeu.createdAt|date }}</p>
-        </article>
-    {% endfor %}
+    {% if jeux|length > 0 %}
+    {# fonction pluralize créée pour mettre le mot jeu au pluriel selon le nombre d'entrées dans la base de données
+        Fonction décrite dans AppExtension.php#}
+    <h1 class="mb-4 text-center text-muted">{{ pluralize(jeux|length, 'jeu') }}</h1>
+        {#Ici je vais regroupper mes jeux par 3 pour qu'il créé un row à chaque groupe de 3#}
+        {% for row in jeux|batch(3) %}
+            <div class="row mb-5">
+                {% for jeu in row %}
+                    <div class="col-md-4">
+                        <article class="jeu rounded shadow">
+                            <div class="mw-100 rounded-top overflow-hidden">
+                                <a href="{{ path('app_jeux_show', {id: jeu.id}) }}">
+                                    <img src="{{ (jeu.imageName ? vich_uploader_asset(jeu) : asset('build/images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium')}}" alt="{{ jeu.title }}" class="w-100" />
+                                </a>
+                            </div>
+                            <h2 class="h5 pl-3 pt-3"><a href="{{ path('app_jeux_show', {id: jeu.id}) }}" class="text-decoration-none">{{ jeu.title }}</a></h2>
+                            <p class="pl-3 pb-3 text-muted"><small>Jeu ajouté [OWNER FULL NAME]</small></p>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+            <p class="mt-5 text-center h3">Aucun jeu dans votre ludothèque 
+                <span class="text-warning h4">&#9785; </span>
+                    <a href="{{ path('app_jeux_create') }}">Ajoutez votre premier jeu 
+                <span class="text-warning h2">&#9786;</span></a>
+            </p>
+    {% endif %}
 {% endblock %}
