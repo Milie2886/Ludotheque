@@ -11,7 +11,7 @@
                 </div>
                 <div class="p-3">
                     <h1 class="h4 text-secondary">{{ jeu.title }}</h1>
-                    <p><small>Jeu ajouté le {{ jeu.createdAt|format_datetime('full', 'short') }} par [user]</small></p>
+                    <p><small>Jeu ajouté le {{ jeu.createdAt|format_datetime('full', 'short') }} par {{ jeu.user.fullName }}</small></p>
                     <p class="text-break">{{ jeu.description }}</p>
                 </div>
             </article>

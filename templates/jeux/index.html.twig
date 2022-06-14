@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                             <h2 class="h5 pl-3 pt-3"><a href="{{ path('app_jeux_show', {id: jeu.id}) }}" class="text-decoration-none">{{ jeu.title }}</a></h2>
-                            <p class="pl-3 pb-3 text-muted"><small>Jeu ajouté [OWNER FULL NAME]</small></p>
+                            <p class="pl-3 pb-3 text-muted"><small>Jeu ajouté par {{ jeu.user.fullName }}</small></p>
                         </article>
                     </div>
                 {% endfor %}
