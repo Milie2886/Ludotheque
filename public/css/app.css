@@ -1,0 +1,10 @@
+html, body {
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+.alert {
+    padding: 10px;
+    color: white;
+    text-align: center;
+
+}

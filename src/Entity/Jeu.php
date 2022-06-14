@@ -29,6 +29,9 @@ class Jeu
     #[Assert\Length(min:10)]
     private $description;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $imageName;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +57,18 @@ class Jeu
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
 
         return $this;
     }

@@ -11,18 +11,7 @@
         
         {% block stylesheets %}
             <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
-            <style>
-                html, body {
-                    font-family: 'Yusei Magic', sans-serif;
-                }
-
-                .alert {
-                    padding: 10px;
-                    color: white;
-                    text-align: center;
-
-                }
-            </style>
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {% endblock %}
 
         {% block javascripts %}
