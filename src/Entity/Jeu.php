@@ -40,6 +40,7 @@ class Jeu
      * 
      * @var File|null
      */
+    #[Assert\Image(maxSize:"8M")]
     private $imageFile;
     
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
