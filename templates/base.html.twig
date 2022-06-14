@@ -12,6 +12,16 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
             <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+            <style>
+            .vich-image .form-check {
+                margin-top: 20px;
+            }
+            .vich-image img {
+                margin-bottom: 20px;
+                box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+                border-radius: 20px;
+            }
+            </style>
         {% endblock %}
 
         {% block javascripts %}
