@@ -17,7 +17,8 @@ class JeuType extends AbstractType
                 'label' => 'Image (JPG ou PNG)',
                 'required' => false,
                 'allow_delete' => true,
-                'download_uri' => false
+                'download_uri' => false,
+                'imagine_pattern' => 'squared_thumbnail_small'
             ])
             ->add('title')
             ->add('description')
