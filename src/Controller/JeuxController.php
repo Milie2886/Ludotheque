@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Jeu;
 use App\Form\JeuType;
 use App\Repository\JeuRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,7 +33,7 @@ class JeuxController extends AbstractController
 
     //Route pour ajouter un jeu
     #[Route('/jeux/create', name: 'app_jeux_create', methods: ["GET", "POST"])]
-    public function create(Request $request , EntityManagerInterface $em): Response
+    public function create(Request $request , EntityManagerInterface $em, UserRepository $userRepo): Response
     {
         $jeu = new Jeu;
         $form = $this->createForm(JeuType::class, $jeu);
@@ -40,6 +41,8 @@ class JeuxController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $moi = $userRepo->findOneBy(['email' => 'emilie@hotmail.com']);
+            $jeu->setUser($moi);
             $em->persist($jeu);
             $em->flush();
 

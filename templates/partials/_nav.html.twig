@@ -6,8 +6,9 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor01">
-            {# Essai de mise sur la droite de mes boutons non fonctionnel...#}
-            <ul class="navbar-nav ml-auto">
+            {# Essai de mise sur la droite de mes boutons non fonctionnel... du coup j'ai mis margin en auto...#}
+            <ul class="navbar-nav m-auto">
+                {% if app.user %}
                     <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_jeux_create')}}">Ajouter un jeu</a>
                     </li>
@@ -15,8 +16,16 @@
                     <a class="nav-link" href="#">Compte</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Déconnexion</a>
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                     </li>
+                {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
