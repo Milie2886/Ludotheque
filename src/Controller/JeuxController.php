@@ -41,8 +41,7 @@ class JeuxController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $moi = $userRepo->findOneBy(['email' => 'emilie@hotmail.com']);
-            $jeu->setUser($moi);
+            $jeu->setUser($this->getUser());
             $em->persist($jeu);
             $em->flush();
 
