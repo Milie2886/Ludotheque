@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
+//Controller pour gérer l'ajout, l'édition, la suppression des jeux
 class JeuxController extends AbstractController
 {
     //Route pour accéder à la page d'accueil

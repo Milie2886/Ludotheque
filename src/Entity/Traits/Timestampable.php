@@ -5,7 +5,7 @@ namespace App\Entity\Traits;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * 
+ * Trait créé pour externaliser les champs created_at et updated_at. il suffit d'appeler ce trait dans toutes les tables ayant besoin de ces champs.
  */
 trait Timestampable
 {

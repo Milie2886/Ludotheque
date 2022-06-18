@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
+//Controller pour accéder au profil de l'utilisateur et le modifier
 class AccountController extends AbstractController
 {
     #[Route('/account', name: 'app_account', methods:"GET")]

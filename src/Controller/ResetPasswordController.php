@@ -19,7 +19,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
-
+//Controller créé par symfony console make:reset-password pour gérer le réinitialisation du mot de passe
 #[Route('/reset-password')]
 class ResetPasswordController extends AbstractController
 {

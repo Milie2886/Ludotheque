@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-
+//Controller créé par symfony console make:auth pour gérer l'authentification
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]

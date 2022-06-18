@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
-
+//Controller créé par symfony console make:registration-form, permet de gérer l'inscription
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
