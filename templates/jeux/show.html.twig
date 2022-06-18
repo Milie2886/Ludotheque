@@ -17,7 +17,7 @@
             
                 <div class="p-3">
                     <a href="{{ path('app_jeux_edit', {id : jeu.id}) }}" class="btn btn-info">Modifier</a>
-                    <a href="#" onClick="event.preventDefault(); confirm('Etes-vous sûr(e)?') && document.getElementById('js-jeu-delete-form').submit();" class="btn btn-danger">Supprimer</a>
+                    <a href="#" onClick="event.preventDefault(); confirm('Etes-vous sûr(e)?') && document.getElementById('js-jeu-delete-form').submit();" class="btn btn-danger">&times; Supprimer</a>
 
                     <form id="js-jeu-delete-form" action="{{ path('app_jeux_delete', {id : jeu.id}) }}" method="post" style="display: none;">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token('jeu_deletion_' ~ jeu.id)}}">
