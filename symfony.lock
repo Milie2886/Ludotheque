@@ -292,6 +292,9 @@
             "./config/packages/messenger.yaml"
         ]
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.10.0"
+    },
     "theofidry/psysh-bundle": {
         "version": "4.5.0"
     },
