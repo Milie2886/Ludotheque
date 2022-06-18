@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Profil' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <h1 class="my-5">Mon profil</h1>
+            {#Ici, je récupère mon avatar (voir dans l'entité User/fonction gravatar)#}
+            <img src="{{ app.user.gravatar }}" alt="Avatar de {{ app.user.fullName }}" class="shadow rounded-circle">
+            <p class="mt-5 lead">{{ app.user.email }}</p>
+            <h2>{{ app.user.fullName }}</h2>
+            <p>
+                <a href="">Modifier le profil</a> | <a href="">Changer de mot de passe</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
