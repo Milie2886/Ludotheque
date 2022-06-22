@@ -1,4 +1,4 @@
-Bienvenue sur l'application Ludotheque.
+<Bienvenue sur l'application Ludotheque.
 Développée en symfony 6
 Etapes d'installation : 
 Cloner le repo,
@@ -21,3 +21,4 @@ Une fois le compte créé, on peut ajouter son premier jeu
 Ajouter un jeu (image, titre et description)
 Une fois ajouté, on peut le modifier, le supprimer
 On peut également modifier son profil, et réinitialiser son mot de passe.
+Ce \textbf{Mot} en gras.
