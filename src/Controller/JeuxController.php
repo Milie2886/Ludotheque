@@ -35,6 +35,7 @@ class JeuxController extends AbstractController
     #[Route('/jeux/create', name: 'app_jeux_create', methods: ["GET", "POST"])]
     public function create(Request $request , EntityManagerInterface $em, UserRepository $userRepo): Response
     {
+        
         $jeu = new Jeu;
         $form = $this->createForm(JeuType::class, $jeu);
 
@@ -91,5 +92,10 @@ class JeuxController extends AbstractController
     }
 
     return $this->redirectToRoute('app_home');
+    }
+    #[Route('/phpinfo', name: 'phpinfo')]
+    public function phpinfo()
+    {
+        return phpinfo();
     }
 }

@@ -14,13 +14,14 @@ class JeuType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        //Ici, j'ai commenté le filtre car ça ne fonctionne pas...
         $builder
             ->add('imageFile', VichImageType::class, [
                 'label' => 'Image (JPG ou PNG)',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => false,
-                'imagine_pattern' => 'squared_thumbnail_small'
+                //'imagine_pattern' => 'squared_thumbnail_small'
             ])
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)

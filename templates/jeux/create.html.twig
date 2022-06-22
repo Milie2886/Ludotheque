@@ -3,12 +3,18 @@
 {% block title 'Nouveau Jeu' %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <h1>Ajouter un jeu</h1>
+    {% if app.user %}             
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h1>Ajouter un jeu</h1>
 
-            {{ include('jeux/_form.html.twig', {'submitButtonText' : 'Ajouter'}) }}
+                {{ include('jeux/_form.html.twig', {'submitButtonText' : 'Ajouter'}) }}
+            </div>
         </div>
-    </div>
+    {% else %}
+        <div class="mb-3">
+            Vous n'êtes pas connecté(e) ! <a href="{{ path('app_login') }}">Connectez vous</a> ou <a href="{{ path('app_register')}}"> Créez un compte!</a>
+        </div>
+    {% endif %}
 
 {% endblock %}
